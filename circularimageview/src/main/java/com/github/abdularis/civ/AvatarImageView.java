@@ -33,6 +33,7 @@ public class AvatarImageView extends CircleImageView {
 
     private static final String DEF_INITIAL = "A";
     private static final int DEF_TEXT_SIZE = 90;
+    private static int NR_INITIALS = 2;
     private static final int DEF_BACKGROUND_COLOR = 0xE53935;
     @State
     private static final int DEF_STATE = SHOW_INITIAL;
@@ -50,11 +51,11 @@ public class AvatarImageView extends CircleImageView {
 
     private int mShowState;
 
-    public AvatarImageView(Context context) {
+    public InkAvatar(Context context) {
         this(context, null);
     }
 
-    public AvatarImageView(Context context, AttributeSet attrs) {
+    public InkAvatar(Context context, AttributeSet attrs) {
         super(context, attrs);
 
         String text = DEF_INITIAL;
@@ -177,7 +178,8 @@ public class AvatarImageView extends CircleImageView {
     @NonNull
     private String extractInitial(@Nullable String letter) {
         if (letter == null || letter.trim().length() <= 0) return "?";
-        return String.valueOf(letter.charAt(0));
+        if (letter.trim().length() == 1) NR_INITIALS = 1;
+        return String.valueOf(letter.substring(0, NR_INITIALS)).toUpperCase();
     }
 
     private void updateTextBounds() {
