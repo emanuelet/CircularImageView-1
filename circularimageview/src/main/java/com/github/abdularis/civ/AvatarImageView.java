@@ -51,11 +51,11 @@ public class AvatarImageView extends CircleImageView {
 
     private int mShowState;
 
-    public InkAvatar(Context context) {
+    public AvatarImageView(Context context) {
         this(context, null);
     }
 
-    public InkAvatar(Context context, AttributeSet attrs) {
+    public AvatarImageView(Context context, AttributeSet attrs) {
         super(context, attrs);
 
         String text = DEF_INITIAL;
